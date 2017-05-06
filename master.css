@@ -1,0 +1,89 @@
+* {
+  font-family: "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: #a6f7ff;
+  border: 0 none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 7px 15px;
+  width: 414px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button:active {
+  box-shadow: 0 5px #666;
+  transform: translate(5px, 5px);
+}
+
+input {
+  width: 200px;
+}
+
+input[type=text]:focus {
+  border-color: #333;
+}
+
+input[type=text] {
+  border: 2px solid #a6f7ff;
+  border-radius: 5px;
+  color: purple;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 20px;
+  height: 160px;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  width: 400px;
+}
+
+.bold {
+  color: #f326b4;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-weight: 700;
+}
+
+.bolder-too {
+  color: #f326b4;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-weight: 700;
+}
+
+.center-text {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dirty-font {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.header {
+  font-size: 2em;
+  padding-bottom: 3px;
+  margin: 0 auto;
+  margin-bottom: 1px;
+  width: 414px;
+}
+
+.inner {
+  position: relative;
+  top: 100px;
+}
+
+.outer {
+  text-align: center;
+}
+
+#answer {
+  font-size: 1.8em;
+  height: 200px;
+  margin: 0 auto;
+  width: 414px;
+}
