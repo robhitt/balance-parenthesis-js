@@ -28,6 +28,8 @@ input {
 
 input[type=text]:focus {
   border-color: #333;
+  outline: 0;
+  border: 2px solid #f326b4;
 }
 
 input[type=text] {
