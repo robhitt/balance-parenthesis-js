@@ -39,63 +39,56 @@ If value of input string is null return false
 
 ### isBalanced()
 ```javascript
-function isBalanced() {
-  var parensStr = document.getElementById('input-one');
-  var inputStr = parensStr.value
-  if (inputStr === null) { printToScreen(true); }
+function isBalanced(inputStr) {
+  if (inputStr === null) { return true; }
+
   var expression = inputStr.split('');
   var stack = [];
+
+  var currChar, top
   for (var i = 0; i < expression.length; i++) {
-    if (isParanthesis(expression[i])) {
-      if (isOpenParenthesis(expression[i])) {
-        stack.push(expression[i]);
-      } else {
-        if (stack.length === 0) {
-          return printToScreen(false);
-        }
-        var top = stack.pop(); // pop off the top element from stack
-        if (!matches(top, expression[i])) {
-          return printToScreen(false);
-        }
+    currChar = expression[i]
+    if (isOpenParenthesis(currChar)) {
+      stack.push(currChar);
+    } else if (isCloseParenthesis(currChar)) {
+      if (stack.length === 0) {
+        return false;
+      }
+
+      top = stack.pop(); // pop off the top element from stack
+      if (!matches(top, currChar)) {
+        return false;
       }
     }
   }
-  ```
 
-### isParanthesis()
-```javascript
-function isParanthesis(char) {
-  var str = '{}[]()';
-  if (str.indexOf(char) > -1) {
-    return true;
-  } else {
-    return false;
-  }
+  return !stack.length;
 }
 ```
 
-### isOpenParenthesis()
+### isOpenParenthesis, isClosedParenthesis, matches
 ```javascript
+var tokens = {
+  '[': ']',
+  '{': '}',
+  '(': ')'
+};
+var opening = Object.keys(tokens);
+var closing = Object.values(tokens);
+
+// *** Check if character is an opening bracket ***
 function isOpenParenthesis(parenthesisChar) {
-  for (var j = 0; j < tokens.length; j++) {
-    if (tokens[j][0] === parenthesisChar) {
-      return true;
-    }
-  }
-  return false;
+  return opening.includes(parenthesisChar)
 }
-```
 
-### matches(topOfStack, closedParenthesis)
-```javascript
+// *** Check if character is an closing bracket ***
+function isCloseParenthesis(parenthesisChar) {
+  return closing.includes(parenthesisChar)
+}
+
+// *** Check if opening bracket matches closing bracket ***
 function matches(topOfStack, closedParenthesis) {
-  for (var k = 0; k < tokens.length; k++) {
-    if (tokens[k][0] === topOfStack &&
-        tokens[k][1] === closedParenthesis) {
-      return true;
-    }
-  }
-  return false;
+  return tokens[topOfStack] === closedParenthesis
 }
 ```
 

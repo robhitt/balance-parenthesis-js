@@ -14,18 +14,18 @@ var isBalanced = (function() {
   var closing = Object.values(tokens);
 
   // *** Check if character is an opening bracket ***
-  function isOpenParentheses(parenthesesChar) {
-    return opening.includes(parenthesesChar)
+  function isOpenParenthesis(parenthesisChar) {
+    return opening.includes(parenthesisChar)
   }
 
   // *** Check if character is an closing bracket ***
-  function isCloseParentheses(parenthesesChar) {
-    return closing.includes(parenthesesChar)
+  function isCloseParenthesis(parenthesisChar) {
+    return closing.includes(parenthesisChar)
   }
 
   // *** Check if opening bracket matches closing bracket ***
-  function matches(topOfStack, closedParentheses) {
-    return tokens[topOfStack] === closedParentheses
+  function matches(topOfStack, closedParenthesis) {
+    return tokens[topOfStack] === closedParenthesis
   }
 
   // *** We excute this function upon the event ***
@@ -38,9 +38,9 @@ var isBalanced = (function() {
     var currChar, top
     for (var i = 0; i < expression.length; i++) {
       currChar = expression[i]
-      if (isOpenParentheses(currChar)) {
+      if (isOpenParenthesis(currChar)) {
         stack.push(currChar);
-      } else if (isCloseParentheses(currChar)) {
+      } else if (isCloseParenthesis(currChar)) {
         if (stack.length === 0) {
           return false;
         }
