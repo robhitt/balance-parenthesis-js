@@ -11,7 +11,9 @@ btn.addEventListener('click', isBalanced);
 document.getElementById("input-one").addEventListener("keyup", function(event) {
     event.preventDefault(); // Left this in case I convert to a form in the future
     if (event.keyCode == 13) {
-        isBalanced();
+        var parensStr = document.getElementById('input-one');
+        var inputStr = parensStr.value
+        isBalanced(inputStr);
     }
 });
 
@@ -58,10 +60,8 @@ function printToScreen(bool) {
 }
 
 // *** We excute this function upon the event ***
-function isBalanced() {
-  var parensStr = document.getElementById('input-one');
-  var inputStr = parensStr.value
-  if (inputStr === null) { printToScreen(true); }
+function isBalancedinputStr {
+  if (inputStr === null) { return true; }
 
   var expression = inputStr.split('');
   var stack = [];
