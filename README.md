@@ -45,7 +45,7 @@ function isBalanced(inputStr) {
   var expression = inputStr.split('');
   var stack = [];
 
-  var currChar, top
+  var currChar, top;
   for (var i = 0; i < expression.length; i++) {
     currChar = expression[i]
     if (isOpenParenthesis(currChar)) {
@@ -78,17 +78,17 @@ var closing = Object.values(tokens);
 
 // *** Check if character is an opening bracket ***
 function isOpenParenthesis(parenthesisChar) {
-  return opening.includes(parenthesisChar)
+  return opening.includes(parenthesisChar);
 }
 
 // *** Check if character is an closing bracket ***
 function isCloseParenthesis(parenthesisChar) {
-  return closing.includes(parenthesisChar)
+  return closing.includes(parenthesisChar);
 }
 
 // *** Check if opening bracket matches closing bracket ***
 function matches(topOfStack, closedParenthesis) {
-  return tokens[topOfStack] === closedParenthesis
+  return tokens[topOfStack] === closedParenthesis;
 }
 ```
 
@@ -96,7 +96,7 @@ function matches(topOfStack, closedParenthesis) {
 ```javascript
 function printToScreen(bool) {
   var parensStr = document.getElementById('input-one');
-  var inputStr = parensStr.value
+  var inputStr = parensStr.value;
   var answer = document.getElementById('answer');
   if (bool) {
     answer.innerHTML = `WooHoo! Your string <div class='bold'> \"     ${inputStr}\ "</div> is <span class='bolder-too'>balanced</span>!`;
